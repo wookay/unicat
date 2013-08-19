@@ -20,7 +20,7 @@ namespace unicat
 		{
 			char[] chars = self.ToCharArray();
 			Array.Reverse(chars);
-    		return new String(chars);
+			return new String(chars);
 		}
 
 		public static string slice(this string self, int loc, int length)
