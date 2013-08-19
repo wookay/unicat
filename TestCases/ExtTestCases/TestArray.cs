@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 namespace Ext
 {
-    using NUnit.Framework;
+	using NUnit.Framework;
 	using unicat;
 
-    [TestFixture]
-    public class TestArrayExt
-    {
-        [Test]
-        public void TestArray()
-        {
+	[TestFixture]
+	public class TestArrayExt
+	{
+
+		[Test]
+		public void TestArray()
+		{
 			int[] oneTwoThree = new int[] {1, 2, 3};
 			Assert.AreEqual("System.Int32[]", oneTwoThree.ToString());
 			Assert.AreEqual("[]", new int[]{}.to_s());
@@ -36,9 +37,9 @@ namespace Ext
 			Assert.AreEqual(new string[] {"b", "c", "a"}, bca);
 		}
 
-        [Test]
-        public void TestList()
-        {
+		[Test]
+		public void TestList()
+		{
 			List<string> list = new List<string>{"a", "b", "c"};
 			string[] abc = new string[] {"a", "b", "c"};
 			Assert.AreEqual(abc, list.ToArray());

@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 namespace Ext
 {
-    using NUnit.Framework;
+	using NUnit.Framework;
 	using unicat;
 
-    [TestFixture]
-    public class TestDictionaryExt
-    {
-        [Test]
-        public void TestDictionary()
-        {
+	[TestFixture]
+	public class TestDictionaryExt
+	{
+
+		[Test]
+		public void TestDictionary()
+		{
 			Dictionary<string, int> d = new Dictionary<string, int>() {
 				{"cat", 2},
 				{"dog", 1},

@@ -2,15 +2,16 @@
 
 namespace Ext
 {
-    using NUnit.Framework;
+	using NUnit.Framework;
 	using unicat;
 
-    [TestFixture]
-    public class TestStringExt
-    {
-        [Test]
-        public void TestString()
-        {
+	[TestFixture]
+	public class TestStringExt
+	{
+
+		[Test]
+		public void TestString()
+		{
 			Assert.AreEqual("a", " a ".strip());
 			Assert.AreEqual("cba", "abc".reverse());
 			Assert.AreEqual("bc", "abc".slice(1, 2));
