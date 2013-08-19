@@ -10,6 +10,8 @@ namespace unicat
 	{
 		public static string LF = "\n";
 		public static string SPACE = " ";
+		public static string COMMA = ",";
+		public static string COMMA_SPACE = ", ";
 
 		public static string strip(this string self)
 		{
@@ -64,12 +66,17 @@ namespace unicat
 
 		public static int to_int(this string self)
 		{
-			return (int)Convert.ToSingle(self.Replace(".", ","));
+			return (int)Convert.ToSingle(self.Replace(".", ",").TrimEnd('f'));
 		}
 
 		public static float to_float(this string self)
 		{
-			return Convert.ToSingle(self.Replace(".", ","));
+			return Convert.ToSingle(self.Replace(".", ",").TrimEnd('f'));
+		}
+
+		public static string to_s(this string self)
+		{
+			return self.ToString();
 		}
 	}
 }

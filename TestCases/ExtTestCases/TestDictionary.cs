@@ -19,6 +19,9 @@ namespace Ext
 			};
 			Assert.AreEqual(new string[] {"cat", "dog"}, d.Keys);
 			Assert.AreEqual(new int[] {2, 1}, d.Values);
+			Assert.AreEqual("System.Collections.Generic.Dictionary`2[System.String,System.Int32]", d.ToString());
+			Assert.AreEqual("{cat: 2, dog: 1}", d.to_s());
+			Assert.AreEqual("{}", new Dictionary<string, int>(){}.to_s());
 		}
 	}
 }
