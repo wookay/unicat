@@ -28,12 +28,16 @@ namespace unicat
 			}
 		}
 
-		public static V delete<K,V>(this Dictionary<K,V> self, K key)
+		public static object delete<K,V>(this Dictionary<K,V> self, K key)
 		{
 			V val;
-			self.TryGetValue(key, out val);
-			self.Remove(key);
-			return val;	
+			bool found = self.TryGetValue(key, out val);
+			if (found) {
+				self.Remove(key);
+				return val;	
+			} else {
+				return null;
+			}
 		}
 
 		public static string to_s<K,V>(this Dictionary<K,V> self)

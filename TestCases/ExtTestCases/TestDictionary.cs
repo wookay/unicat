@@ -34,7 +34,6 @@ namespace Ext
 
 			d.store("horse", 5);
 			Assert.AreEqual("{cat: 2, dog: 1, horse: 5}", d.to_s());
-
 			Assert.AreEqual(3, d.Count);
 
 			d.delete("apple");
