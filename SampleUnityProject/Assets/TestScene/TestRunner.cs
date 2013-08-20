@@ -9,7 +9,7 @@ public class TestRunner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ResultSummary result = NUnitLiteUnityRunner.RunTests();
-		for (int idx=0; idx < 5; idx++) {
+		for (int idx=0; idx < result.TestCount; idx++) {
 			Instantiate(prefabPassed, new Vector3(idx*1.05f, -2, 0), Quaternion.identity);
 		}		
 		for (int idx=0; idx < result.FailureCount; idx++) {

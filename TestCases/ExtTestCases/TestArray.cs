@@ -20,6 +20,7 @@ namespace Ext
 			Assert.AreEqual("[1, 2, 3]", oneTwoThree.to_s());
 			Assert.AreEqual("123", oneTwoThree.join());
 			Assert.AreEqual("1,2,3", oneTwoThree.join(","));
+			Assert.AreEqual(3, oneTwoThree.Length);
 
 			int[] twoThreeOne = new int[] {2, 3, 1};
 			Assert.AreEqual(oneTwoThree, twoThreeOne.sort());
@@ -44,13 +45,16 @@ namespace Ext
 			string[] abc = new string[] {"a", "b", "c"};
 			Assert.AreEqual(abc, list.ToArray());
 			Assert.AreEqual("[\"a\", \"b\", \"c\"]", list.to_s());
+			Assert.AreEqual(3, list.Count);
 			list.push("d");
 			Assert.AreEqual("a, b, c, d", list.join(", "));
 			list.concat(new string[]{"e", "f"});
 			Assert.AreEqual("a, b, c, d, e, f", list.join(", "));
+			Assert.AreEqual(6, list.Count);
 
 			Assert.AreEqual("f", list.pop());
 			Assert.AreEqual("a, b, c, d, e", list.join(", "));
+			Assert.AreEqual(5, list.Count);
 		}
 	}
 }

@@ -16,6 +16,7 @@ namespace Ext
 			Assert.AreEqual("cba", "abc".reverse());
 			Assert.AreEqual("bc", "abc".slice(1, 2));
 			Assert.AreEqual("abcd", "abcff".gsub("ff", "d"));
+			Assert.AreEqual(3, "abc".Length);
 			Assert.IsTrue("abcff".include("ff"));
 			Assert.IsFalse("abcff".include("gg"));
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "abc".split(""));

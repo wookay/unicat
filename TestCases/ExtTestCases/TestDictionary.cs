@@ -23,6 +23,27 @@ namespace Ext
 			Assert.AreEqual("System.Collections.Generic.Dictionary`2[System.String,System.Int32]", d.ToString());
 			Assert.AreEqual("{cat: 2, dog: 1}", d.to_s());
 			Assert.AreEqual("{}", new Dictionary<string, int>(){}.to_s());
+
+			Assert.IsTrue(d.hasKey("dog"));
+			Assert.IsFalse(d.hasKey("apple"));
+
+			Assert.AreEqual(1, d.fetch("dog"));
+			Assert.AreEqual(null, d.fetch("apple"));
+
+			Assert.AreEqual(2, d.Count);
+
+			d.store("horse", 5);
+			Assert.AreEqual("{cat: 2, dog: 1, horse: 5}", d.to_s());
+
+			Assert.AreEqual(3, d.Count);
+
+			d.delete("apple");
+			Assert.AreEqual("{cat: 2, dog: 1, horse: 5}", d.to_s());
+
+			d.delete("cat");
+			Assert.AreEqual("{dog: 1, horse: 5}", d.to_s());
+			Assert.AreEqual(2, d.Count);
+
 		}
 	}
 }
