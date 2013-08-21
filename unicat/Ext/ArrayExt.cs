@@ -13,6 +13,8 @@ namespace unicat
 			foreach (T element in self) {
 				if (element is string) {
 					list.Add("\"" + element + "\"");
+				} else if (element is string[]) {
+					list.Add(ArrayExt.to_s((IEnumerable<string>)element));
 				} else {
 					list.Add(element.ToString());
 				}
@@ -34,11 +36,46 @@ namespace unicat
 			return self.join("");
 		}
 
+		public static T[] reverse<T>(this T[] self)
+		{
+			List<T> list = new List<T>(self);
+			T[] ary = list.ToArray();
+			Array.Reverse(ary);
+			return ary;
+		}
+
 		public static T[] sort<T>(this T[] self)
 		{
 			List<T> list = new List<T>(self);
 			list.Sort();
 			return list.ToArray();
+		}
+
+		public static T[] slice<T>(this T[] self, int loc, int length)
+		{
+			List<T> list = new List<T>{};
+			int count = self.Length;
+			for	(int idx = loc; idx < loc + length; idx++)
+			{
+				if (count > idx) {
+					list.Add(self[idx]);
+				}
+			}
+			return list.ToArray();
+		}
+
+		public static bool include<T>(this T[] self, T element)
+		{
+			return 0 < Array.IndexOf(self, element);
+		}
+
+		public static int sum(this int[] self)
+		{
+			int num = 0;
+			foreach (int element in self) {
+				num += element;
+			}
+			return num;
 		}
 	}
 
@@ -60,10 +97,20 @@ namespace unicat
 			return ret;
 		}
 
+		public static bool include<T>(this List<T> self, T element)
+		{
+			return self.Contains(element);
+		}
+
 		public static List<T> concat<T>(this List<T> self, T[] elements)
 		{
 			self.AddRange(elements);
 			return self;
+		}
+
+		public static void clear<T>(this List<T> self)
+		{
+			self.Clear();
 		}
 	}
 }

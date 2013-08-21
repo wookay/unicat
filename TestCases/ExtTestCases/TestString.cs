@@ -20,6 +20,7 @@ namespace Ext
 			Assert.IsTrue("abcff".include("ff"));
 			Assert.IsFalse("abcff".include("gg"));
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "abc".split(""));
+			Assert.AreEqual(new string[] {"a", "b", "c"}, "abc".chars());
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "a b c".split(" "));
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "a, b, c".split(", "));
 			Assert.AreEqual("\n", StringExt.LF);

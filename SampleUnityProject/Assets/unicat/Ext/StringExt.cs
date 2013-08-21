@@ -40,6 +40,11 @@ namespace unicat
 			return self.Contains(str);
 		}
 
+		public static string[] chars(this string self)
+		{
+			return self.split("");
+		}
+
 		public static string[] split(this string self, string sep)
 		{
 			if (0 == sep.Length) {

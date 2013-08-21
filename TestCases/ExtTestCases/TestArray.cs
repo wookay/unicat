@@ -32,10 +32,22 @@ namespace Ext
 			Assert.AreEqual("abc", abc.join());
 			Assert.AreEqual("abc", abc.join(""));
 			Assert.AreEqual("a,b,c", abc.join(","));
+			Assert.AreEqual("a", abc.slice(0, 1).join(","));
+			Assert.AreEqual(new string[]{}, abc.slice(0, -1));
+			Assert.AreEqual(new string[]{}, abc.slice(3, 1));
+			Assert.AreEqual("b,c", abc.slice(1, 2).join(","));
+			Assert.AreEqual("b,c", abc.slice(1, 3).join(","));
+			Assert.IsTrue(abc.include("b"));
+			Assert.IsFalse(abc.include("ff"));
 
 			string[] bca = new string[] {"b", "c", "a"};
 			Assert.AreEqual(abc, bca.sort());
 			Assert.AreEqual(new string[] {"b", "c", "a"}, bca);
+			Assert.AreEqual(new string[] {"b", "c", "a"}, bca);
+
+			Assert.AreEqual("c b a", abc.reverse().join(" "));
+			Assert.AreEqual("a b c", abc.join(" "));
+			Assert.AreEqual(abc, abc.reverse().reverse());
 		}
 
 		[Test]
@@ -48,6 +60,8 @@ namespace Ext
 			Assert.AreEqual(3, list.Count);
 			list.push("d");
 			Assert.AreEqual("a, b, c, d", list.join(", "));
+			Assert.IsTrue(list.include("b"));
+			Assert.IsFalse(list.include("ff"));
 			list.concat(new string[]{"e", "f"});
 			Assert.AreEqual("a, b, c, d, e, f", list.join(", "));
 			Assert.AreEqual(6, list.Count);
@@ -55,6 +69,9 @@ namespace Ext
 			Assert.AreEqual("f", list.pop());
 			Assert.AreEqual("a, b, c, d, e", list.join(", "));
 			Assert.AreEqual(5, list.Count);
+
+			list.clear();
+			Assert.AreEqual(0, list.Count);
 		}
 	}
 }

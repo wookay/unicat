@@ -5,6 +5,7 @@ a:
 	make TestArray
 	make TestDictionary
 	make TestNumber
+	make TestHashSet
 	make TestUnicat
 
 TestString:
@@ -23,12 +24,17 @@ TestDictionary:
 	nunit-console -nologo                            TestDictionary.dll
 
 TestNumber:
-	mcs -t:library ../../unicat/Ext/NumberExt.cs -out:NumberExt.dll
+	mcs -t:library ../../unicat/Ext/NumberExt.cs ../../unicat/Ext/DictionaryExt.cs ../../unicat/Ext/ArrayExt.cs -out:NumberExt.dll
 	mcs -t:library -r:nunit.framework,NumberExt  TestNumber.cs
 	nunit-console -nologo                        TestNumber.dll
 
+TestHashSet:
+	mcs -t:library ../../unicat/Ext/HashSetExt.cs -out:HashSetExt.dll
+	mcs -t:library -r:nunit.framework,HashSetExt  TestHashSet.cs
+	nunit-console -nologo                         TestHashSet.dll
+
 TestUnicat:
-	mcs -t:library ../../unicat/Ext/StringExt.cs ../../unicat/Ext/ArrayExt.cs ../../unicat/Ext/DictionaryExt.cs ../../unicat/Ext/NumberExt.cs  -out:UnicatExt.dll
+	mcs -t:library ../../unicat/Ext/StringExt.cs ../../unicat/Ext/ArrayExt.cs ../../unicat/Ext/DictionaryExt.cs ../../unicat/Ext/NumberExt.cs ../../unicat/Ext/HashSetExt.cs  -out:UnicatExt.dll
 	mcs -t:library -r:nunit.framework,UnicatExt  TestUnicat.cs
 	nunit-console -nologo                        TestUnicat.dll
 
