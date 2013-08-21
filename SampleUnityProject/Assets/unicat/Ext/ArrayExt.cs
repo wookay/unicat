@@ -66,7 +66,7 @@ namespace unicat
 
 		public static bool include<T>(this T[] self, T element)
 		{
-			return 0 < Array.IndexOf(self, element);
+			return 0 <= Array.IndexOf(self, element);
 		}
 
 		public static int sum(this int[] self)
