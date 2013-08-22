@@ -6,6 +6,7 @@ a:
 	make TestDictionary
 	make TestNumber
 	make TestHashSet
+	make TestDateTime
 	make TestUnicat
 
 TestString:
@@ -32,6 +33,11 @@ TestHashSet:
 	mcs -t:library ../../unicat/Ext/HashSetExt.cs -out:HashSetExt.dll
 	mcs -t:library -r:nunit.framework,HashSetExt  TestHashSet.cs
 	nunit-console -nologo                         TestHashSet.dll
+
+TestDateTime:
+	mcs -t:library ../../unicat/Ext/DateTimeExt.cs -out:DateTimeExt.dll
+	mcs -t:library -r:nunit.framework,DateTimeExt  TestDateTime.cs
+	nunit-console -nologo                          TestDateTime.dll
 
 TestUnicat:
 	mcs -t:library ../../unicat/Ext/StringExt.cs ../../unicat/Ext/ArrayExt.cs ../../unicat/Ext/DictionaryExt.cs ../../unicat/Ext/NumberExt.cs ../../unicat/Ext/HashSetExt.cs  -out:UnicatExt.dll
