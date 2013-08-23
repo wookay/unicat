@@ -20,7 +20,7 @@ namespace Ext
 			Assert.AreEqual(new string[]{"a", "b"},
 				b.Where(s => s.Length > 0)
 				 .Select(s => s[0].ToString())
-                 .ToArray()
+				 .ToArray()
 			);
 		}
 	}
