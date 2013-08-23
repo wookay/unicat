@@ -36,5 +36,50 @@ namespace Ext
 			object b = new object();
 			Assert.IsFalse(a.Equals(b));
 		}
+
+		[Test]
+		public void TestReflectionInvoke()
+		{
+			MethodInfo toUpper = typeof(string).GetMethod("ToUpper", Type.EmptyTypes);
+			Assert.AreEqual("System.String ToUpper()", toUpper.ToString());
+			Assert.AreEqual("ABC", toUpper.Invoke("abc", null));
+			Assert.AreEqual("", toUpper.Invoke("", null));
+
+			MethodInfo indexOf = typeof(string).GetMethod("IndexOf", new Type[]{ typeof(string) });
+			Assert.AreEqual("Int32 IndexOf(System.String)", indexOf.ToString());
+			Assert.AreEqual(0, indexOf.Invoke("abc", new[]{"ab"}));
+			Assert.AreEqual(1, indexOf.Invoke("abc", new[]{"bc"}));
+			Assert.AreEqual(-1, indexOf.Invoke("abc", new[]{"cd"}));
+		}
+
+		[Test]
+		public void TestSingleton()
+		{
+			Single a = Single.sharedInstance;
+			Single b = Single.sharedInstance;
+			Assert.AreEqual(a, b);
+		}
+	}
+
+
+	// singleton class
+	public class Single
+	{
+		private static Single instance;
+		public Single()
+		{
+			if (null == instance) {
+				instance = this;
+			}
+		}
+		public static Single sharedInstance
+		{
+			get {
+				if (null == instance) {
+					new Single();
+				}
+				return instance;
+			}
+		}
 	}
 }

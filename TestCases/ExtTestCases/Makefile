@@ -9,6 +9,7 @@ a:
 	make TestDateTime
 	make TestUnicat
 	make TestObject
+	make TestLinq
 
 TestString:
 	mcs -t:library ../../unicat/Ext/StringExt.cs -out:StringExt.dll
@@ -48,6 +49,10 @@ TestUnicat:
 TestObject:
 	mcs -t:library -r:nunit.framework  TestObject.cs
 	nunit-console -nologo              TestObject.dll
+
+TestLinq:
+	mcs -t:library -r:nunit.framework  TestLinq.cs
+	nunit-console -nologo              TestLinq.dll
 
 c:
 	rm -f *.dll *.xml
