@@ -24,7 +24,7 @@ namespace Ext
 			HashSet<int> d = new HashSet<int>{1, 2, 3};
 			d.IntersectWith(b);
 			Assert.AreEqual("{2}", d.to_s());
-			Assert.IsTrue(d.SetEquals(new HashSet<int>{2}));
+			Assert.AreEqual(true, d.SetEquals(new HashSet<int>{2}));
 
 			HashSet<int> c = a.intersection(b);
 			Assert.AreEqual("{2}", c.to_s());
@@ -46,7 +46,7 @@ namespace Ext
 			Assert.AreEqual("{a, b, c}", a.to_s());
 
 			string[] e = new string[]{"a", "b", "c"};
-			Assert.IsTrue(new HashSet<string>(e).SetEquals(a));
+			Assert.AreEqual(true, new HashSet<string>(e).SetEquals(a));
 		}
 	}
 }

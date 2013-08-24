@@ -17,9 +17,9 @@ namespace Ext
 			Assert.AreEqual("bc", "abc".slice(1, 2));
 			Assert.AreEqual("abcd", "abcff".gsub("ff", "d"));
 			Assert.AreEqual(3, "abc".Length);
-			Assert.IsTrue("abcff".include("a"));
-			Assert.IsTrue("abcff".include("ff"));
-			Assert.IsFalse("abcff".include("gg"));
+			Assert.AreEqual(true, "abcff".include("a"));
+			Assert.AreEqual(true, "abcff".include("ff"));
+			Assert.AreEqual(false, "abcff".include("gg"));
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "abc".split(""));
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "abc".chars());
 			Assert.AreEqual(new string[] {"a", "b", "c"}, "a b c".split(" "));

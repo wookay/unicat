@@ -37,9 +37,9 @@ namespace Ext
 			Assert.AreEqual(new string[]{}, abc.slice(3, 1));
 			Assert.AreEqual("b,c", abc.slice(1, 2).join(","));
 			Assert.AreEqual("b,c", abc.slice(1, 3).join(","));
-			Assert.IsTrue(abc.include("a"));
-			Assert.IsTrue(abc.include("b"));
-			Assert.IsFalse(abc.include("ff"));
+			Assert.AreEqual(true, abc.include("a"));
+			Assert.AreEqual(true, abc.include("b"));
+			Assert.AreEqual(false, abc.include("ff"));
 
 			string[] bca = new string[] {"b", "c", "a"};
 			Assert.AreEqual(abc, bca.sort());
@@ -61,9 +61,9 @@ namespace Ext
 			Assert.AreEqual(3, list.Count);
 			list.push("d");
 			Assert.AreEqual("a, b, c, d", list.join(", "));
-			Assert.IsTrue(list.include("a"));
-			Assert.IsTrue(list.include("b"));
-			Assert.IsFalse(list.include("ff"));
+			Assert.AreEqual(true, list.include("a"));
+			Assert.AreEqual(true, list.include("b"));
+			Assert.AreEqual(false, list.include("ff"));
 			list.concat(new string[]{"e", "f"});
 			Assert.AreEqual("a, b, c, d, e, f", list.join(", "));
 			Assert.AreEqual(6, list.Count);

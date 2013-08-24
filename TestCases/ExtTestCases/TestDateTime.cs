@@ -26,8 +26,8 @@ namespace Ext
 			TimeSpan timeSpan = new TimeSpan(13, 1, 59);
 			Assert.AreEqual(a, a.Date + timeSpan);
 			Assert.AreEqual(a, a.tomorrow().yesterday());
-			Assert.IsTrue(a.tomorrow() > a);
-			Assert.IsTrue(a.yesterday() < a);
+			Assert.AreEqual(true, a.tomorrow() > a);
+			Assert.AreEqual(true, a.yesterday() < a);
 			Assert.AreEqual(DayOfWeek.Thursday, a.DayOfWeek);
 			Assert.AreEqual(DayOfWeek.Friday, a.tomorrow().DayOfWeek);
 			Assert.AreEqual(DayOfWeek.Wednesday, a.yesterday().DayOfWeek);

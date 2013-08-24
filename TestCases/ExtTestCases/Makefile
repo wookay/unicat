@@ -9,6 +9,8 @@ a:
 	make TestDateTime
 	make TestUnicat
 	make TestObject
+	make TestReflection
+	make TestSingleton
 	make TestLinq
 
 TestString:
@@ -49,6 +51,14 @@ TestUnicat:
 TestObject:
 	mcs -t:library -r:nunit.framework  TestObject.cs
 	nunit-console -nologo              TestObject.dll
+
+TestReflection:
+	mcs -t:library -r:nunit.framework  TestReflection.cs
+	nunit-console -nologo              TestReflection.dll
+
+TestSingleton:
+	mcs -t:library -r:nunit.framework  TestSingleton.cs
+	nunit-console -nologo              TestSingleton.dll
 
 TestLinq:
 	mcs -t:library -r:nunit.framework  TestLinq.cs

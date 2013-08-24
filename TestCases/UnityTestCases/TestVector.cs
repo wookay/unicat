@@ -6,22 +6,18 @@ namespace Ext
 	using UnityEngine;
 
 	[TestFixture]
-	public class TestVector
+	public class TestUnityVector
 	{
-
-		[Test]
-		public void TestRect()
-		{
-			Rect rect = new Rect(0, 0, 150, 150);
-			Assert.IsTrue(rect.Contains(new Vector2(1, 1)));
-			Assert.IsTrue(rect.Contains(new Vector3(1, 1, 1)));
-			Assert.IsFalse(rect.Contains(new Vector2(200, 1)));
-		}
 
 		[Test]
 		public void TestVector2()
 		{
 			Assert.AreEqual("(0.0, 0.0)", Vector2.zero.ToString());
+
+			Vector2 a = new Vector2(3, 5);
+			Vector2 b = new Vector2(2, 3);
+			Assert.AreEqual("(5.0, 8.0)", (a+b).ToString());
+			Assert.AreEqual("(1.0, 2.0)", (a-b).ToString());
 		}
 
 		[Test]

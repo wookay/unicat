@@ -26,8 +26,8 @@ namespace Ext
 			Assert.AreEqual("{cat: 2, dog: 1}", d.to_s());
 			Assert.AreEqual("{}", new Dictionary<string, int>(){}.to_s());
 
-			Assert.IsTrue(d.hasKey("dog"));
-			Assert.IsFalse(d.hasKey("apple"));
+			Assert.AreEqual(true, d.hasKey("dog"));
+			Assert.AreEqual(false, d.hasKey("apple"));
 
 			Assert.AreEqual(1, d.fetch("dog"));
 			Assert.AreEqual(null, d.fetch("apple"));
