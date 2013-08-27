@@ -24,6 +24,10 @@ namespace Ext
 		public void TestVector3()
 		{
 			Assert.AreEqual("(0.0, 0.0, 0.0)", Vector3.zero.ToString());
+
+			Vector3 a = new Vector3(1.1f, 1.8f, 0);
+			Assert.AreEqual(new Vector3(1.1f, 1.8f, 0), a);
+			Assert.AreEqual("(1.1, 1.8, 0.0)", a.ToString());
 		}
 	}
 }
