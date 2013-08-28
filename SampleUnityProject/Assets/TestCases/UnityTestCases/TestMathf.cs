@@ -20,8 +20,11 @@ namespace Ext
 			Assert.AreEqual(1, Mathf.Min(1, 2));
 			Assert.AreEqual(2, Mathf.Max(1, 2));
 
+			Assert.AreEqual(10, Mathf.Floor(10.1f));
 			Assert.AreEqual(10, Mathf.Floor(10.6f));
+			Assert.AreEqual(10, Mathf.Round(10.1f));
 			Assert.AreEqual(11, Mathf.Round(10.6f));
+			Assert.AreEqual(11f, Mathf.Ceil(10.1f));
 			Assert.AreEqual(11f, Mathf.Ceil(10.6f));
 
 			Assert.AreEqual(5, Mathf.Abs(-5));

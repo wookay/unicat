@@ -12,9 +12,9 @@ namespace unicat
 			return self.ToString();
 		}
 
-		public static Vector3 floor2(this Vector3 self)
+		public static Vector3 Round(this Vector3 self)
 		{
-			return new Vector3(Mathf.Floor(self.x), Mathf.Floor(self.y), self.z);
+			return new Vector3(Mathf.Round(self.x), Mathf.Round(self.y), Mathf.Round(self.z));
 		}
 	}
 }

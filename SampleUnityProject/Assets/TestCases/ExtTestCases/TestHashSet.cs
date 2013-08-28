@@ -15,7 +15,7 @@ namespace Ext
 		public void TestNumberSet()
 		{
 			HashSet<int> a = new HashSet<int>{1, 2, 3};
-      		HashSet<int> b = new HashSet<int>{2, 5};
+			HashSet<int> b = new HashSet<int>{2, 5};
 			Assert.AreEqual("{1, 2, 3}", a.to_s());
 			Assert.AreEqual("{2, 5}", b.to_s());
 			Assert.AreEqual("System.Collections.Generic.HashSet`1[System.Int32]", a.ToString());

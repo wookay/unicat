@@ -46,8 +46,8 @@ namespace Ext
 			Assert.AreEqual(2, d.Count);
 
 			Dictionary<string, int> e = new Dictionary<string, int>() {
-                {"cow", 7},
-            };
+				{"cow", 7},
+			};
 			d.merge(e);
 			Assert.AreEqual("{cow: 7, dog: 1, horse: 5}", d.to_s());
 			Assert.AreEqual(3, d.Count);
