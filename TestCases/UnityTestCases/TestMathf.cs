@@ -27,6 +27,9 @@ namespace Ext
 			Assert.AreEqual(11f, Mathf.Ceil(10.1f));
 			Assert.AreEqual(11f, Mathf.Ceil(10.6f));
 
+			Assert.AreEqual(3, Mathf.Clamp(10, 1, 3));
+			Assert.AreEqual(1, Mathf.Clamp(0, 1, 3));
+
 			Assert.AreEqual(5, Mathf.Abs(-5));
 			Assert.AreEqual(1, Mathf.Sin(90 * Mathf.Deg2Rad));
 			Assert.AreEqual(-1, Mathf.Cos(180 * Mathf.Deg2Rad));
