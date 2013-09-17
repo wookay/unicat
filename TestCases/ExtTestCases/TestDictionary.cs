@@ -30,6 +30,7 @@ namespace Ext
 			Assert.AreEqual(false, d.hasKey("apple"));
 
 			Assert.AreEqual(1, d.fetch("dog"));
+			Assert.AreEqual(1, d["dog"]);
 			Assert.AreEqual(null, d.fetch("apple"));
 
 			Assert.AreEqual(2, d.Count);

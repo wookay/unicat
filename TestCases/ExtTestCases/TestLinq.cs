@@ -1,6 +1,7 @@
 // TestLinq.cs
 
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Ext
 {
@@ -22,6 +23,24 @@ namespace Ext
 				 .Select(s => s[0].ToString())
 				 .ToArray()
 			);
+		}
+
+		[Test]
+		public void TestDictionaryToList()
+		{
+			 Dictionary<string, int> d = new Dictionary<string, int>() {
+				{"cat", 2},
+				{"dog", 1},
+			};
+			List<KeyValuePair<string, int>> list = d.ToList();
+			Assert.AreEqual(new List<KeyValuePair<string,int>>{
+					new KeyValuePair<string, int>("cat", 2),
+					new KeyValuePair<string, int>("dog", 1)
+				}, list);
+			Assert.AreEqual(2, list.Count);
+			Assert.AreEqual(d, list.ToDictionary(
+					(pair) => pair.Key,
+					(pair) => pair.Value));
 		}
 	}
 }
