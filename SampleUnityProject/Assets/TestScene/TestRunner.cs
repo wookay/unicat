@@ -3,17 +3,14 @@ using System.Collections;
 using NUnitLite;
 
 public class TestRunner : MonoBehaviour {
-	public GameObject prefabPassed;
-	public GameObject prefabFailed;
 	
 	// Use this for initialization
-	void Start () {
+	void Start () {		
 		ResultSummary result = NUnitLiteUnityRunner.RunTests();
-		for (int idx=0; idx < result.TestCount; idx++) {
-			Instantiate(prefabPassed, new Vector3(idx*1.05f, -2, 0), Quaternion.identity);
-		}		
-		for (int idx=0; idx < result.FailureCount; idx++) {
-			Instantiate(prefabFailed, new Vector3(idx*1.1f, 0, -2), Quaternion.identity);
+		if (result.FailureCount > 0) {
+			renderer.material.color = Color.red;
+		} else if (result.TestCount > 0) {
+			renderer.material.color = new Color(0.13f, 0.63f, 0.13f, 1);
 		}
 	}
 
