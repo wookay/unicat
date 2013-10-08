@@ -31,6 +31,10 @@ namespace Ext
 			Assert.AreEqual("{1, 2, 3}", a.to_s());
 			Assert.AreEqual(new int[]{1, 2, 3}, a.to_a());
 			Assert.AreEqual(new int[]{3, 5, 1}, new HashSet<int>{3,5,1}.to_a());
+
+			c.Remove(2);
+			c.Add(7);
+			Assert.AreEqual(new int[]{7}, c.to_a());
 		}
 
 		[Test]

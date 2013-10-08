@@ -69,6 +69,21 @@ namespace unicat
 			return 0 <= Array.IndexOf(self, element);
 		}
 
+		public static T first<T>(this T[] self)
+		{
+			return self[0];
+		}
+
+		public static T second<T>(this T[] self)
+		{
+			return self[1];
+		}
+
+		public static T third<T>(this T[] self)
+		{
+			return self[2];
+		}
+
 		public static int sum(this int[] self)
 		{
 			int num = 0;

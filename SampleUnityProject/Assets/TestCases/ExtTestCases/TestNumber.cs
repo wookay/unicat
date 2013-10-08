@@ -36,7 +36,7 @@ namespace Ext
 		public void TestRandom()
 		{
 			Dictionary<int, int> d = new Dictionary<int,int>{};
-			Random rand = new Random();
+			System.Random rand = new System.Random();
 			int max = 50;
 			int times = 1000;
 			for (int idx = 0; idx < times; idx++) {

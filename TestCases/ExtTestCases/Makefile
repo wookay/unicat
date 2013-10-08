@@ -12,6 +12,7 @@ a:
 	make TestReflection
 	make TestSingleton
 	make TestLinq
+	make TestRandom
 
 TestString:
 	mcs -t:library ../../unicat/Ext/StringExt.cs -out:StringExt.dll
@@ -63,6 +64,11 @@ TestSingleton:
 TestLinq:
 	mcs -t:library -r:nunit.framework  TestLinq.cs
 	nunit-console -nologo              TestLinq.dll
+
+TestRandom:
+	mcs -t:library ../../unicat/Ext/RandomExt.cs ../../unicat/Ext/DictionaryExt.cs ../../unicat/Ext/ArrayExt.cs -out:RandomExt.dll
+	mcs -t:library -r:nunit.framework,RandomExt  TestRandom.cs
+	nunit-console -nologo                        TestRandom.dll
 
 c:
 	rm -f *.dll *.xml
